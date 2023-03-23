@@ -1,20 +1,26 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import NoteContext from "../context/notes/NoteContext";
 import Noteitem from "./Noteitem";
 
-function Notes() {
+function NotesDisplay(prop) {
   const notecontext = useContext(NoteContext);
-  const { notes, setnotes } = notecontext;
+  const { notes, FetchNotes } = notecontext;
+  useEffect(() => {
+    FetchNotes();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div>
-      <h2>all notes</h2>
-
+      <h2>All Notes</h2>
+          
       <div className="container">
+      <div className="container">{notes.length === 0 && "No notes to display"}</div>
         <div className="row">
           {notes.map((note) => {
             return (
               <div className="col-md-3 " key={note._id}>
-                <Noteitem note={note} />
+                <Noteitem note={note} noteditor={prop.updater} />
               </div>
             );
           })}
@@ -24,7 +30,7 @@ function Notes() {
   );
 }
 
-export default Notes;
+export default NotesDisplay;
 
 // {notes.map((note)=>{
 //     return note.tittle

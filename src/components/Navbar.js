@@ -2,7 +2,10 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 function Navbar() {
   let location = useLocation();
-
+  const HandleSignOut = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
   return (
     <div>
       <nav
@@ -48,17 +51,32 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            {!localStorage.getItem("token") ? (
+              <div>
+                <Link
+                  className="btn btn-primary mx-1"
+                  to="/Login"
+                  role="button"
+                >
+                  Login
+                </Link>
+                <Link
+                  className="btn btn-primary mx-1"
+                  to="/Signup"
+                  role="button"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            ) : (
+              <Link
+                className="btn btn-primary mx-1"
+                onClick={HandleSignOut}
+                role="button"
+              >
+                Sign Out
+              </Link>
+            )}
           </div>
         </div>
       </nav>
