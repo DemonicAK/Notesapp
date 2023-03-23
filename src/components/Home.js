@@ -4,7 +4,10 @@ import NotesDisplay from "./NotesDisplay";
 import Addnote from "./Addnote";
 // import EditModal from "./EditModal";
 
+
 function Home() {
+
+
   const notecontext = useContext(NoteContext);
   const { EditNote } = notecontext;
 
@@ -38,7 +41,7 @@ function Home() {
 
     staClose.current.click();
   };
-
+ 
   return (
     <div>
       {/* <form className="d-flex my-2" role="search">

@@ -19,8 +19,7 @@ const NoteState = (props) => {
       credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQxODYyOTI2Zjg0OWY1ODY1ZmMyODMwIn0sImlhdCI6MTY3OTMxOTY5OX0.AKEA7PCJ7uE2V89A6dLaVDtnAyE9UbGODadTBxpEDRQ",
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ tittle, description, tag }),
     });
@@ -28,18 +27,17 @@ const NoteState = (props) => {
     const result = await response.json();
 
     setnotes(notes.concat(result));
-    console.log('note added')
+    console.log("note added");
   };
 
   const FetchNotes = async () => {
     //  TODO:MAKE API CALLS
     const url = `${host}/api/notes/fetchallnotes`;
     const response = await fetch(url, {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQxODYyOTI2Zjg0OWY1ODY1ZmMyODMwIn0sImlhdCI6MTY3OTMxOTY5OX0.AKEA7PCJ7uE2V89A6dLaVDtnAyE9UbGODadTBxpEDRQ",
+        "auth-token": localStorage.getItem("token"),
       },
     });
 
@@ -59,8 +57,7 @@ const NoteState = (props) => {
       credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQxODYyOTI2Zjg0OWY1ODY1ZmMyODMwIn0sImlhdCI6MTY3OTMxOTY5OX0.AKEA7PCJ7uE2V89A6dLaVDtnAyE9UbGODadTBxpEDRQ",
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const result = await response.json();
@@ -81,8 +78,7 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQxODYyOTI2Zjg0OWY1ODY1ZmMyODMwIn0sImlhdCI6MTY3OTMxOTY5OX0.AKEA7PCJ7uE2V89A6dLaVDtnAyE9UbGODadTBxpEDRQ",
+        "auth-token": localStorage.getItem("token"),
       },
 
       body: JSON.stringify({ tittle, description, tag }),
