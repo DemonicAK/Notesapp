@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const host = "http://localhost:5000";
+  const host = "http://localhost:5000/api";
   // const Navigate = useNavigate();
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const Login = () => {
 
   const LoginUser = async () => {
     //  TODO:MAKE API CALLS
-    const url = `${host}/api/auth/loginuser`;
+    const url = `${host}/auth/loginuser`;
     const response = await fetch(url, {
       method: "POST",
       headers: {

@@ -2,7 +2,9 @@ import NoteContext from "./NoteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5000";
+
+  const INITIAL_URL = process.env.REACT_APP_BACKEND_URL;
+  const host = INITIAL_URL + "/notes"
 
   const notesInitial = [];
   const [notes, setnotes] = useState(notesInitial);
@@ -11,7 +13,7 @@ const NoteState = (props) => {
 
   const CreateNote = async (tittle, description, tag) => {
     //  TODO:MAKE API CALLS
-    const url = `${host}/api/notes/createnote`;
+    const url = `${host}/createnote`;
     const response = await fetch(url, {
       method: "POST",
       mode: "cors",
@@ -32,7 +34,7 @@ const NoteState = (props) => {
 
   const FetchNotes = async () => {
     //  TODO:MAKE API CALLS
-    const url = `${host}/api/notes/fetchallnotes`;
+    const url = `${host}/fetchallnotes`;
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -49,7 +51,7 @@ const NoteState = (props) => {
   //delete a note   need noteid
   const DeleteNote = async (noteid) => {
     //  TODO:MAKE API CALLS
-    const url = `${host}/api/notes/deletenote/${noteid}`;
+    const url = `${host}/deletenote/${noteid}`;
     const response = await fetch(url, {
       method: "DELETE",
       mode: "cors",
@@ -73,7 +75,7 @@ const NoteState = (props) => {
   //Edit a note   need noteid
   const EditNote = async (noteid, tittle, description, tag) => {
     //  TODO:MAKE API CALLS
-    const url = `${host}/api/notes/updatenote/${noteid}`;
+    const url = `${host}/updatenote/${noteid}`;
     const response = await fetch(url, {
       method: "PUT",
       headers: {

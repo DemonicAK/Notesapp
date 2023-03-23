@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const host = "http://localhost:5000";
+  const INITIAL_URL = process.env.REACT_APP_BACKEND_URL;
+  const host = INITIAL_URL + "/auth"
   const navigate = useNavigate();
 
   const [credentials, setcredentials] = useState({
@@ -23,7 +24,7 @@ const Signup = () => {
 
   const CreateUser = async () => {
     //  TODO:MAKE API CALLS
-    const url = `${host}/api/auth/createuser`;
+    const url = `${host}/auth/createuser`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
