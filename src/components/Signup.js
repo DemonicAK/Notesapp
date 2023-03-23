@@ -24,7 +24,7 @@ const Signup = () => {
 
   const CreateUser = async () => {
     //  TODO:MAKE API CALLS
-    const url = `${host}/auth/createuser`;
+    const url = `${host}/createuser`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
