@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const host = "http://localhost:5000/api";
+  const INITIAL_URL = process.env.REACT_APP_BACKEND_URL;
+  const host = INITIAL_URL + "/auth"
   // const Navigate = useNavigate();
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ const Login = () => {
 
   const LoginUser = async () => {
     //  TODO:MAKE API CALLS
-    const url = `${host}/auth/loginuser`;
+    const url = `${host}/loginuser`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -50,6 +51,8 @@ const Login = () => {
   return (
     <>
       <div className="container my-4">
+      <div className="container my-2"><h1>Login to use GammaNotes</h1></div>
+
         <form>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">

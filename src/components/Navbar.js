@@ -6,7 +6,7 @@ function Navbar() {
   const navigate = useNavigate();
   const HandleSignOut = () => {
     localStorage.removeItem("token");
-    navigate("/Login")
+    navigate("/Login");
     window.location.reload();
   };
   return (
@@ -17,7 +17,7 @@ function Navbar() {
       >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            MyNotes
+            GammaNotes
           </Link>
           <button
             className="navbar-toggler"

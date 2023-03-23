@@ -38,7 +38,6 @@ const Addnote = () => {
               type="text"
               className="form-control"
               id="tittle"
-              aria-describedby="tittle"
               name="tittle"
               onChange={HandleChange}
               value={note.tittle}
@@ -71,7 +70,7 @@ const Addnote = () => {
               type="text"
               className="form-control"
               id="tags"
-              aria-describedby="tags"
+              name="tag"
               value={note.tag}
               onChange={HandleChange}
             />

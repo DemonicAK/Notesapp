@@ -15,7 +15,7 @@ function NotesDisplay(prop) {
          FetchNotes();
        }
        else{
-       navigate("/Login");}
+       navigate("/Signup");}
      // eslint-disable-next-line
    }, []);
   return (

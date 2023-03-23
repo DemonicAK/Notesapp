@@ -55,6 +55,8 @@ const Signup = () => {
   return (
     <>
       <div className="container my-4">
+        <div className="container my-2"><h1>Sign Up to use GammaNotes</h1></div>
+        {/* <h1>Sign Up to use GammaNotes</h1> */}
         <form>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
