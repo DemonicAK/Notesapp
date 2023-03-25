@@ -29,7 +29,7 @@ const NoteState = (props) => {
     const result = await response.json();
 
     setnotes(notes.concat(result));
-    console.log("note added");
+    // console.log("note added");
   };
 
   const FetchNotes = async () => {
@@ -44,7 +44,7 @@ const NoteState = (props) => {
     });
 
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     setnotes(result);
   };
 
@@ -62,10 +62,11 @@ const NoteState = (props) => {
         "auth-token": localStorage.getItem("token"),
       },
     });
+    // eslint-disable-next-line no-unused-vars
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
 
-    console.log("deleteing the note id" + noteid);
+    // console.log("deleteing the note id" + noteid);
     const filteredNote = notes.filter((note) => {
       return note._id !== noteid;
     });
@@ -86,8 +87,9 @@ const NoteState = (props) => {
       body: JSON.stringify({ tittle, description, tag }),
     });
 
+    // eslint-disable-next-line no-unused-vars
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     const newNote = JSON.parse(JSON.stringify(notes));
     for (let index = 0; index < newNote.length; index++) {
       const element = notes[index];
